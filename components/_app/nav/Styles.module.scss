@@ -1,0 +1,44 @@
+._  {
+    width: 100%;
+    background: #202020;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links {
+    display: flex;
+    gap: 10px;
+    
+    a {
+        position: relative;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    span {
+        display: flex;
+        width: 3px;
+        height: 3px;
+        border-radius: 100%;
+        background: #999;
+        align-self: center;
+        justify-content: center;
+    }
+
+    &:hover {
+        a {
+            color: #999;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.actions {
+
+}
