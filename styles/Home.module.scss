@@ -1,0 +1,72 @@
+._ {
+
+}
+
+.header {
+  display: flex;
+  gap: 40px;
+  padding: 50px 0;
+  flex-direction: column;
+}
+
+.header_text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+
+  h1 {
+    font-size: 50px;
+    max-width: 600px;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    text-align: center;
+
+    @media (max-width: 1200px) {
+      font-size: 40px;
+      max-width: 80%;
+    }
+  }
+
+  p {
+    padding: 0 20px;
+    color: #999;
+  }
+}
+
+.header_view {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: row;
+
+  button {
+    background: #96deff;
+    color: #202020;
+    border: none;
+    padding: 0 40px;
+    height: 35px;
+    border-radius: 4px;
+    transition: 100ms;
+
+    &:hover {
+      background: #84c3e0;
+    }
+
+    &:nth-child(2) {
+      background: transparent;
+      border: 1px solid #999;
+      color: #999;
+
+      &:hover {
+        border-color: #96deff;
+        color: #96deff;
+      }
+    }
+  }
+}

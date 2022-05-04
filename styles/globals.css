@@ -17,3 +17,18 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.r_body {
+  height: calc(100vh - 60px);
+  overflow: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.r_body > main {
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1500px;
+  min-height: calc(100vh - 60px);
+}

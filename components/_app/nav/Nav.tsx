@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import styles from "./Styles.module.scss";
 
 interface NavItem {
@@ -28,30 +27,33 @@ export default function Nav() {
     ];
 
     return (
-        <nav className={styles._}>
-            <div className={styles.logo}>
-                <Link href="/">
-                    <Image src="https://github.com/SkylixGH/Info/raw/main/logos/Logo%20Icon%20Dark.svg" />
-                </Link>
-            </div>
+        <div className={styles._}>
+            <nav className={styles.inner}>
+                <div className={styles.logo}>
+                    <Link href="/">
+                        <img src="https://github.com/SkylixGH/Info/raw/main/logos/Logo%20Icon%20Dark.svg" />
+                    </Link>
+                </div>
 
-            <div className={styles.links}>
-                { navContent.map((item, index) => { 
-                    return (
-                        <>
-                            <Link href={item.href} key={index}>
-                                <a>{item.label}</a>
-                            </Link>
+                <div className={styles.links}>
+                    { navContent.map((item, index) => { 
+                        return (
+                            <>
+                                <Link href={item.href} key={index}>
+                                    <a>{item.label}</a>
+                                </Link>
 
-                            { index !== navContent.length - 1 && <span /> }
-                        </>
-                    )
-                }) }
-            </div>
+                                { index !== navContent.length - 1 && <span /> }
+                            </>
+                        )
+                    }) }
+                </div>
 
-            <div className={styles.actions}>
-
-            </div>
-        </nav>
+                <div className={styles.actions}>
+                    <button>Login</button>
+                    <button className={styles.actions_button__accent}>Sign Up</button>
+                </div>
+            </nav>
+        </div>
     );
 }
