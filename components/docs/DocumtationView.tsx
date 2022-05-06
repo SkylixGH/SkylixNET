@@ -1,4 +1,7 @@
+import path from 'path';
 import React from 'react';
+import fs from 'fs';
+import Link from 'next/link';
 
 interface HeaderItem {
     type: 'header';
@@ -9,24 +12,11 @@ interface CodeBlockItem {
 }
 
 interface Props {
-    content: (HeaderItem | CodeBlockItem)[];
+    target: string;
 }
 
-export default function DocumentationView(props: Props) {
+export default function DocumentationView(props: Props) {    
     return (
-        <div>
-            { props.content.map((item) => {
-                switch (item.type) {
-                    case 'header':
-                        return <h1>{item.type}</h1>;
-
-                    case 'code':
-                        return <code>{item.type}</code>;
-
-                    default:
-                        return <div>...</div>;
-                }
-            }) }
-        </div>
-    );
+        <p></p>
+    )
 }

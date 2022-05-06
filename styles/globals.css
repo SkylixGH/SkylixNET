@@ -68,7 +68,7 @@ a {
 .r__app_effect > div {
   width: 400px;
   height: 50px;
-  background: #96deff;
+  background: #4166F5;
   position: absolute;
   top: 0;
   left: calc(100vw - 400px);
@@ -78,7 +78,7 @@ a {
 
 .r__app_effect > div:nth-child(2) {
   left: calc((100vw - 400px) - 150px);
-  background: #55ffff;
+  background: #00FFEF;
 }
 
 .r__app_root {

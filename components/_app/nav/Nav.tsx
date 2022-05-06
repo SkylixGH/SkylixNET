@@ -17,7 +17,7 @@ export default function Nav() {
             label: "About",
         },
         {
-            href: "/dcumentation",
+            href: "/documentation",
             label: "Documentation",
         },
         {
