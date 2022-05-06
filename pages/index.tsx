@@ -1,25 +1,81 @@
+import Center from '../components/_mixed/Center';
 import styles from '../styles/Home.module.scss'
 
-interface Stat {
+interface Section {
   title: string;
   description: string;
-  icon: any;
+  jsx?: any;
+}
+
+function Quad(props: { data: [ Section, Section, Section, Section ]}) {
+  const createSector = (d1: Section, d2: Section, top: boolean) =>{
+    return (
+      <div className={styles.__quad__sections}>
+        <div className={styles.__quad__sections_section}>
+          <div className={styles.__quad__sections_section_jsx}>
+            { d1.jsx }
+          </div>
+
+          <div className={styles.__quad__sections_section_text}>
+            <h1>{ d1.title }</h1>
+            <p>{ d1.description }</p>
+          </div>
+        </div>
+
+        <hr style={{
+          marginBottom: top ? "-20px" : "0",
+          marginTop: top ? "0" : "-20px"
+        }} />
+
+        <div className={styles.__quad__sections_section}>
+          <div className={styles.__quad__sections_section_jsx}>
+            { d2.jsx }
+          </div>
+
+          <div className={styles.__quad__sections_section_text}>
+            <h1>{ d2.title }</h1>
+            <p>{ d2.description }</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
+  return (
+    <div className={styles.__quad__}>
+      { createSector(props.data[0], props.data[1], true) }
+
+      <hr />
+
+      { createSector(props.data[2], props.data[3], false) }
+    </div>
+  )
 }
 
 export default function Home() {
-  const stats: Stat[] = [
+  const sections: Section[] = [
     {
-      title: "Helpful Community",
-      description: "We have a community of people who are passionate about programming and want to help each other.",
-      icon: <img src="https://github.com/SkylixGH/Info/raw/main/logos/Logo%20Icon%20Dark.svg" />
+      title: 'Privacy',
+      description: 'We value our user\'s privacy. We will never sell any of your data!',
+      jsx: <span style={{ fontSize: "40px" }}>🤣</span>
     },
     {
-      title: "Open Source",
-      description: "We are open source and want to help others learn from us.",
-      icon: <img src="https://github.com/SkylixGH/Info/raw/main/logos/Logo%20Icon%20Dark.svg" />
+      title: 'Open Source',
+      description: 'Common software created by skylix will always be open source!',
+      jsx: <span style={{ fontSize: "40px" }}>🤣</span>
+    },
+    {
+      title: 'Flexible',
+      description: 'Open source software created by Skylix will always lie under the MIT license, giving you all the freedom you could ever want!',
+      jsx: <span style={{ fontSize: "40px" }}>🤣</span>
+    },
+    {
+      title: 'Community',
+      description: 'Skylix\'s community is filled with many pationate developers who will always be willing to help you succeed.',
+      jsx: <span style={{ fontSize: "40px" }}>🤣</span>
     }
   ];
-
+  
   return (
     <div className={styles._}>
       <header className={styles.header}>
@@ -34,10 +90,9 @@ export default function Home() {
         </div>
       </header>
 
-      <section>
-        <h1>Skylix</h1>
-        <h6>It do be like that</h6>
-      </section>
+      <Center>
+        <Quad data={sections as any} />
+      </Center>
     </div>
   )
 }

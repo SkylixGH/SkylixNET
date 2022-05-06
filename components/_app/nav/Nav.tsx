@@ -17,6 +17,10 @@ export default function Nav() {
             label: "About",
         },
         {
+            href: "/dcumentation",
+            label: "Documentation",
+        },
+        {
             href: "/jobs",
             label: "Jobs",
         },
