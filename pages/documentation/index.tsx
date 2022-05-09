@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import DocumentationView from '../../components/documentation/DocumtationView';
+import DocumentationView from '../../components/documentation/documentationView/DocumtationView';
 
 export default function Index() {
     const [releaseType, setReleaseType] = React.useState<string>('master');

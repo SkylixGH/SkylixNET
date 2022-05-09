@@ -26,7 +26,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Respon
             const childPath = path.join(dir, child);
             const childStat = fs.statSync(childPath);
             const childRecord: Record = {
-                path: childPath,
+                path: path.relative(documentationPagesRoot, childPath),
                 type: childStat.isDirectory() ? "directory" : "file",
                 name: child
             };
@@ -40,7 +40,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Respon
 
         return children;
     }
-    
+
     walk(documentationPagesRoot).forEach((child) => {
         allPages.push(child);
     });

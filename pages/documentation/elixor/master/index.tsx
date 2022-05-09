@@ -1,7 +1,7 @@
-import DocumentationSideBar from "../../../../components/documentation/DocumentationSideBar";
+import DocumentationView from "../../../../components/documentation/documentationView/DocumtationView";
 
 export default function Index() {
     return (
-        <DocumentationSideBar />
+        <DocumentationView target="Overview of Elixor" />
     )
 }
