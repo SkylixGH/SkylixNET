@@ -5,6 +5,7 @@ import styles from "./Styles.module.scss";
 
 export default function DocumentationSideBar() {
     const [records, setRecords] = useState<SResponse["pages"]>([]);
+    const [openFolders, setOpenFolders] = useState<string[]>([]);
 
     useEffect(() => {
         setRecords([]);
@@ -32,13 +33,37 @@ export default function DocumentationSideBar() {
 
         records.forEach((record) => {
             if (record.type == 'directory') {
+                if (record.children.length === 0)
+                    return;
+
                 renderTree.push(
                     <div className={styles.__entries__item}>
-                        <span style={{
+                        <span onClick={(e) => {
+                            const btn = e.currentTarget.querySelector('button');
+                            btn.click();
+                        }} style={{
                             paddingLeft: `${(inset * 20) + 20}px`
-                        }}>{ record.name }</span>
+                        }}>
+                            { record.name }
 
-                        <div className={styles.__entries__item_body}>
+                            { 
+                                record.children.length > 0
+                                    ? <button onClick={() => {
+                                        if (openFolders.includes(record.path)) {
+                                            setOpenFolders(openFolders.filter(f => f !== record.path));
+                                        } else {
+                                            setOpenFolders([...openFolders, record.path]);
+                                        }
+                                    }}>
+                                        { openFolders.includes(record.path) ? '^' : 'v' }
+                                    </button>
+                                    : null
+                            }
+                        </span>
+
+                        <div style={{
+                            maxHeight: `${openFolders.includes(record.path) ? 'initial' : '0'}`,
+                        }} className={styles.__entries__item_body}>
                             { recursiveRender(record.children, inset + 1) }
                         </div>
                     </div>

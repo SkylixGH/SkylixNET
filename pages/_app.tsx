@@ -1,8 +1,7 @@
-import { Head } from 'next/document'
 import Nav from '../components/_app/nav/Nav'
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
     <div className={'r__app'}>
       <div className={'r__app_effect'}>
@@ -23,4 +22,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default App;

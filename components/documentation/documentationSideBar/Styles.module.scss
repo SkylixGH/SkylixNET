@@ -1,8 +1,7 @@
 ._ {
     display: flex;
     padding: 10px;
-    padding-right: 5px;
-    border-right: 1px solid rgba(255, 255, 255, 15%);
+    border-right: 1px solid rgba(255, 255, 255, 5%);
     width: 300px;
     height: 100%;
     position: relative;
@@ -32,6 +31,22 @@
         border-radius: 2px;
         font-size: 13px;
         width: 100%;
+        position: relative;
+
+        & > button {
+            position: absolute;
+            right: 10px;
+            background: transparent;
+            color: #999;
+            transition: 100ms;
+            border: none;
+            border-radius: 2px;
+
+            &:hover {
+                color: #fff;
+                background: rgba(255, 255, 255, 3%);
+            }
+        }
         
         &:hover {
             background: rgba(255, 255, 255, 3%);
@@ -42,6 +57,7 @@
 .__entries__item_body {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .loader {

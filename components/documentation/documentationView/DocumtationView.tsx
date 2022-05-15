@@ -1,9 +1,10 @@
 import path from 'path';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import fs from 'fs';
 import Link from 'next/link';
 import DocumentationSideBar from '../documentationSideBar/DocumentationSideBar';
 import styles from "./Styles.module.scss";
+import { Response as SResponse } from "../../../pages/api/v1/documentation/allRoutes"
 
 interface HeaderItem {
     type: 'header';
@@ -57,7 +58,16 @@ class RenderView {
     }
 }
 
-export default function DocumentationView(props: Props) {    
+export default function DocumentationView(props: Props) { 
+    const pathCurrent = useMemo(() => {
+        if (typeof window === "undefined") return;
+
+        const segments = location.pathname.split('/');
+        const documentRouteSegments = segments.splice(2);
+
+        return documentRouteSegments.join('/');
+    }, []);
+    
     const rendererView = useMemo(() => {
         return new RenderView();
     }, []);
