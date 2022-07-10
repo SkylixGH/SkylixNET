@@ -1,13 +1,23 @@
 <script lang="ts">
+    import {onMount} from "svelte";
+
     export let text = "Default text";
     export let style: "text"
         | "outline" = "text";
-
-
 </script>
 
 <button class={"button " +
-    `style-${style}`}>{text}</button>
+    `style${style.charAt(0).toUpperCase() + style.slice(1)}`}
+>
+	<span class="invisibleText">{text}</span>
+
+	<div class="sheetCover"></div>
+	<span class="text">{text}</span>
+
+	{#if style === "outline"}
+		<span class="textOverlay">{text}</span>
+	{/if}
+</button>
 
 <style lang="scss">
     @import "../../Color";
@@ -23,10 +33,22 @@
       letter-spacing: 1px;
       font-size: 11px;
         text-transform: uppercase;
+	  position: relative;
 
-      &.style-text {
+	  .invisibleText {
+		opacity: 0;
+	  }
+
+      &.styleText {
         background: transparent;
         color: $text2;
+
+		.text {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		}
 
         &:hover {
           color: $text3;
@@ -34,46 +56,53 @@
         }
       }
 
-      &.style-outline {
-        position: relative;
+      &.styleOutline {
         background: linear-gradient(80deg, $brand1, $brand2);
         color: $brandText2;
 
-        &:before {
-          position: absolute;
-          content: "";
-          display: flex;
-          width: calc(100% - 4px);
-          height: calc(100% - 4px);
-          background: $layer1;
-          top: 2px;
-          left: 2px;
-          border-radius: calc($radius2 / 1.5);
-          transition: $transition1;
-        }
+        .sheetCover {
+		  position: absolute;
+		  top: 2px;
+		  left: 2px;
+		  width: calc(100% - 4px);
+		  height: calc(100% - 4px);
+		  background: $layer1;
+		  border-radius: calc($radius2 / 1.5);
+		  transition: $transition1;
+		}
 
-        &:after {
-          content: "Register";
-          position: absolute;
-          font-weight: bold;
+        .text, .textOverlay {
+		  position: absolute;
+          top: 50%;
+          left: 50%;
+		  transform: translate(-50%, -50%);
           background: -webkit-linear-gradient(80deg, $brand1, $brand2);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          transition: $transition1;
+		  transition: $transition1;
+		}
+
+		.textOverlay {
+		  opacity: 0;
+		  color: $brandText2;
+          -webkit-background-clip: initial;
+          -webkit-text-fill-color: initial;
+		  background: transparent;
         }
 
         &:hover {
-          &:before {
-            opacity: 0;
-            transform: scale(0);
-          }
+          .sheetCover {
+			opacity: 0;
+			transform: scale(0.9);
+		  }
 
-          &:after {
+          .text {
             opacity: 0;
-          }
+		  }
+
+		  .textOverlay {
+			opacity: 1;
+		  }
         }
       }
     }

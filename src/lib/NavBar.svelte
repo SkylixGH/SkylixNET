@@ -31,7 +31,7 @@
 	];
 </script>
 
-<div class="navbar">
+<div class="navBar">
 	<div class="inner">
 		<div class="logo">
 			<img
@@ -61,7 +61,7 @@
 <style lang="scss">
   @import "../Color";
 
-  .navbar {
+  .navBar {
     width: 100vw;
     height: 70px;
     position: fixed;
@@ -156,6 +156,7 @@
 		.end {
 			display: flex;
 			gap: 10px;
+		  align-items: center;
 		}
 	}
   }
