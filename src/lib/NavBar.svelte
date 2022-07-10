@@ -1,194 +1,133 @@
 <script lang="ts">
-    let isMobile = false;
-    export let progress = 10;
-
-    let opacityProg = 1;
-
-    if (progress > 99.9) opacityProg = 0;
-    else opacityProg = 1;
-
-    $: {
-        if (progress > 99.9) opacityProg = 0;
-        else opacityProg = 1;
-    }
-
-    interface Link {
+	interface LinkItem {
         display: string;
         path: string;
-    }
+	}
 
-    const links: Link[] = [
+    const links: LinkItem[] = [
         {
             display: "Home",
-            path: "/"
-        },
+			path: "/"
+		},
         {
             display: "About",
             path: "/about"
-        },
-        {
-            display: "Projects",
-            path: "/projects"
-        },
-        {
-            display: "Contact",
-            path: "/contact"
-        },
-        {
-            display: "Jobs",
-            path: "/jobs"
         }
-    ];
+	];
 </script>
 
-<div class="root">
-    <a class="logo" href="/">
-        <img
-                src="https://raw.githubusercontent.com/SkylixGH/Info/main/logos/LogoDark.svg"
-                draggable="false"
-                alt="Logo"
-        />
-    </a>
+<div class="navbar">
+	<div class="inner">
+		<div class="logo">
+			<img
+					src="https://raw.githubusercontent.com/SkylixGH/Info/main/logos/LogoDark.svg"
+					alt="Logo"
+					draggable="false"
+			/>
+		</div>
 
-    {#if !isMobile}
-        <div class="links">
-            {#each links as link, index}
-                <a href="{link.path}">{link.display}</a>
+		<div class="middle">
+			{#each links as link, index}
+				<a href="{link.path}">{link.display}</a>
 
-                {#if index < links.length - 1}
-                    <span></span>
-                {/if}
-            {/each}
-        </div>
+				{#if index < links.length - 1}
+					<span></span>
+				{/if}
+			{/each}
+		</div>
 
-        <div class="buttons">
-            <button>LOGIN</button>
-            <button>REGISTER</button>
-        </div>
-    {:else}
-        MOBILE
-    {/if}
+		<div class="end">
 
-    <span class="progress" style={`width: ${opacityProg === 0 ? 100 : progress > 100 ? 100 : (progress < 0 ? 0 : progress)}%;` +
-        `opacity: ${opacityProg}`}></span>
+		</div>
+	</div>
 </div>
 
 <style lang="scss">
-    @import "../conf/Color";
+  @import "../Color";
 
-    .root {
-      justify-content: space-between;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 0 20px;
-      height: 70px;
-      background: $l2;
+  .navbar {
+    width: 100vw;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-      .progress {
-        display: flex;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 3px;
-        transition: width 100ms ease-in-out, opacity 500ms ease-in-out;
-        background: linear-gradient(90deg, #00FFEF, #4166F5);
-      }
+    .inner {
+	  width: 100%;
+	  max-width: 1000px;
+	  display: flex;
+	  justify-content: space-between;
+	  margin: 0 40px;
 
       .logo {
-        position: relative;
-        display: flex;
-        align-items: center;
+		position: relative;
+		cursor: pointer;
 
         img {
           width: 40px;
-          position: absolute;
-          transition: all 500ms cubic-bezier(1.000, -0.600, 0.000, 1.650);
+		  transition: $transition2;
         }
 
-        &:before {
-          content: "";
-          display: flex;
-          position: absolute;
-          left: -20px;
-          height: 50px;
-          width: 0;
-          border-radius: $br4;
-          transition: all 500ms cubic-bezier(1.000, -0.600, 0.000, 1.650);
-        }
+		&:before {
+		  content: "";
+		  display: flex;
+		  position: absolute;
+		  width: 80px;
+		  height: 50px;
+		  left: -20px;
+		  top: -5px;
+		  background: $brand2;
+		  z-index: -1;
+		  border-radius: $radius1;
+		  opacity: 0;
+		  transition: $transition2;
+		  transform: scale(0);
+		}
 
-        &:hover {
-          img {
-            transform: scale(1.3);
-          }
+		&:hover {
+		  img {
+			transform: scale(1.3);
+		  }
 
-          &:before {
-            background: $bf1;
-            width: 70px;
-            left: -15px;
-          }
-        }
+		  &:before {
+			opacity: 0.15;
+			transform: scale(1);
+		  }
+		}
       }
 
-      .links {
-        position: absolute;
-        left: 50vw;
-        transform: translate(-50%, 0);
-        display: flex;
-        gap: 10px;
-        align-items: center;
+	  .middle {
+		display: flex;
+		gap: 10px;
+		color: $text1;
+		align-items: center;
 
-        a {
-            color: $t3;
-          text-decoration: none;
-          transition: $tr;
-          font-size: 13px;
+		@media (max-width: 800px) {
+		  display: none;
+		}
 
-          &:hover {
-            color: $t4;
-          }
-        }
+		a {
+		  color: $text2;
+		  text-decoration: none;
+		  transition: $transition2;
+		  height: 100%;
+		  display: flex;
+		  align-items: center;
 
-        span {
-          width: 3px;
-          height: 3px;
-          background: $t2;
-          border-radius: 100%;
-        }
-      }
+		  &:hover {
+			color: $brand2;
+		  }
+		}
 
-      .buttons {
-        display: flex;
-        gap: 5px;
-
-        button {
-          background: transparent;
-          font-size: 13px;
-          color: $t3;
-          transition: $tr;
-          border: none;
-            outline: none;
-          border-radius: $br1;
-          height: 40px;
-          padding: 0 20px;
-
-          &:nth-child(2) {
-            background: $b2;
-            color: $bt2;
-          }
-
-          &:hover {
-            color: $b2;
-            cursor: pointer;
-            background: $bf2;
-
-            &:nth-child(2) {
-              background: $b1;
-              color: $bt1;
-            }
-          }
-        }
-      }
-    }
+		span {
+		  width: 2px;
+		  height: 2px;
+		  background: $text1;
+		}
+	  }
+	}
+  }
 </style>

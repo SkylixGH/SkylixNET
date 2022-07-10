@@ -1,47 +1,31 @@
 <script>
     import NavBar from "../lib/NavBar.svelte";
-
-    let p = 0;
-    setInterval(() => {
-        if (p > 100) {
-            p = 100;
-        }
-
-        p += 10;
-    }, 100);
 </script>
 
 <div class="root">
-    <NavBar progress={p} />
+    <NavBar />
 
-    <div class="view">
-        <div class="main">
-            <slot />
-        </div>
-
-        FOOTER
+    <div class="main">
+        <slot></slot>
     </div>
+
+    FOOTER
 </div>
 
 <style lang="scss">
-  @import "../conf/Color";
+@import "../Color";
 
-  .root {
-    background: $l2;
+.root {
+    background: $layer1;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    color: $t4;
+    overflow: auto;
 
-    .view {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      overflow: auto;
-
-      .main {
+    .main {
         height: 100%;
-      }
+        color: $text3;
+        margin-top: 70px;
     }
-  }
+}
 </style>
