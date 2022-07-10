@@ -21,11 +21,11 @@
 			path: "/contact"
 		},
 		{
-			display: $_("__layout.navBar.login"),
+			display: $_("__layout.navBar.jobs"),
 			path: "/jobs"
 		},
 		{
-			display: $_("__layout.navBar.register"),
+			display: $_("__layout.navBar.projects"),
 			path: "/projects"
 		}
 	];
@@ -70,6 +70,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background: $layer1;
+	z-index: 100;
 
     .inner {
 	  width: 100%;
@@ -139,9 +141,29 @@
 		  align-items: center;
 			text-transform: uppercase;
 			font-size: 11px;
+		  position: relative;
+
+		  &:after {
+			content: "";
+			display: flex;
+			position: absolute;
+			background: $brand2;
+			bottom: 20px;
+			left: 50%;
+			width: calc(100% - 20px);
+			height: 3px;
+			border-radius: 30px;
+			transform: translate(-50%, 0);
+			opacity: 0;
+			transition: $transition1;
+		  }
 
 		  &:hover {
 			color: $brand2;
+
+			&:after {
+              opacity: 1;
+            }
 		  }
 		}
 

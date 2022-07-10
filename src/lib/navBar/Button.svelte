@@ -29,7 +29,6 @@
       border-radius: $radius2;
       transition: $transition1;
       cursor: pointer;
-      font-weight: bold;
       letter-spacing: 1px;
       font-size: 11px;
         text-transform: uppercase;
@@ -57,7 +56,7 @@
       }
 
       &.styleOutline {
-        background: linear-gradient(80deg, $brand1, $brand2);
+        background: linear-gradient(80deg, $brand2, $brand2);
         color: $brandText2;
 
         .sheetCover {
@@ -76,7 +75,7 @@
           top: 50%;
           left: 50%;
 		  transform: translate(-50%, -50%);
-          background: -webkit-linear-gradient(80deg, $brand1, $brand2);
+          background: -webkit-linear-gradient(80deg, $brand2, $brand2);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
 		  transition: $transition1;

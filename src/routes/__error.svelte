@@ -38,6 +38,7 @@
 
 <div class="error">
     <h1>{ code }</h1>
+    <span></span>
     <p>{ messageDisplay }</p>
 </div>
 
@@ -45,10 +46,29 @@
     @import "../Color";
 
     .error {
-        width: 100%;
+      width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 20px;
+        position: relative;
+
+        h1 {
+            background: -webkit-linear-gradient(80deg, $brand2, $brand2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        span {
+            display: flex;
+            width: 1px;
+            height: 80px;
+            background: $dynamicLayer2;
+        }
+
+        p {
+            font-size: 15px;
+        }
     }
 </style>

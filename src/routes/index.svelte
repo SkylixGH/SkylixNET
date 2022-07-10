@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+    import Landing from "../lib/Landing.svelte";
+</script>
+
+<Landing
+		title="Elixor Framework ️‍🔥"
+		header="Build Powerful Applications With Elixor!"
+		description="Elixor is a framework for building powerful applications with Svelte. It is a collection of components that can be used to build a wide range of applications."
+/>
