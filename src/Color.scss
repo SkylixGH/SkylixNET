@@ -2,11 +2,16 @@ $layer1: #202020;
 $layer2: #272727;
 $layer3: #2f2f2f;
 
+$dynamicLayer1: rgba(255, 255, 255, 5%);
+$dynamicLayer2: rgba(255, 255, 255, 10%);
+$dynamicLayer3: rgba(255, 255, 255, 15%);
+$dynamicLayer4: rgba(255, 255, 255, 20%);
+
 $text1: #555;
 $text2: #999;
 $text3: #fff;
 
-$brand1: #b73d3d;
+$brand1: #FFAEAE;
 $brand2: #ff5656;
 
 $brandText1: #505050;
@@ -17,7 +22,7 @@ $radius2: 6px;
 $radius3: 12px;
 $radius4: 24px;
 
-$transition1: 100ms;
-$transition2: 200ms;
+$transition1: 200ms;
+$transition2: 300ms;
 
 $bezierBounce: cubic-bezier(.79,-0.7,.35,1.54);

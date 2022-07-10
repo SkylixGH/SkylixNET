@@ -12,6 +12,10 @@
     FOOTER
 </div>
 
+<svelte:head>
+    <link rel="icon" href="https://raw.githubusercontent.com/SkylixGH/Info/main/logos/LogoAuto.svg">
+</svelte:head>
+
 <style lang="scss">
 @import "../Color";
 

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Button from "./navBar/Button.svelte";
+
 	interface LinkItem {
         display: string;
         path: string;
@@ -12,7 +14,19 @@
         {
             display: "About",
             path: "/about"
-        }
+        },
+		{
+			display: "Contact",
+			path: "/contact"
+		},
+		{
+			display: "Jobs",
+			path: "/jobs"
+		},
+		{
+			display: "Projects",
+			path: "/projects"
+		}
 	];
 </script>
 
@@ -37,7 +51,8 @@
 		</div>
 
 		<div class="end">
-
+			<Button text="Login" />
+			<Button text="Register" style="outline" />
 		</div>
 	</div>
 </div>
@@ -57,10 +72,11 @@
 
     .inner {
 	  width: 100%;
-	  max-width: 1000px;
+	  max-width: 1500px;
 	  display: flex;
 	  justify-content: space-between;
 	  margin: 0 40px;
+		position: relative;
 
       .logo {
 		position: relative;
@@ -104,6 +120,10 @@
 		gap: 10px;
 		color: $text1;
 		align-items: center;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
 
 		@media (max-width: 800px) {
 		  display: none;
@@ -113,9 +133,11 @@
 		  color: $text2;
 		  text-decoration: none;
 		  transition: $transition2;
-		  height: 100%;
+		  height: 70px;
 		  display: flex;
 		  align-items: center;
+			text-transform: uppercase;
+			font-size: 11px;
 
 		  &:hover {
 			color: $brand2;
@@ -126,8 +148,14 @@
 		  width: 2px;
 		  height: 2px;
 		  background: $text1;
+			border-radius: 100%;
 		}
 	  }
+
+		.end {
+			display: flex;
+			gap: 10px;
+		}
 	}
   }
 </style>
