@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from "./navBar/Button.svelte";
+	import { _ } from "svelte-i18n";
 
 	interface LinkItem {
         display: string;
@@ -8,23 +9,23 @@
 
     const links: LinkItem[] = [
         {
-            display: "Home",
+            display: $_("__layout.navBar.home"),
 			path: "/"
 		},
         {
-            display: "About",
+            display: $_("__layout.navBar.about"),
             path: "/about"
         },
 		{
-			display: "Contact",
+			display: $_("__layout.navBar.contact"),
 			path: "/contact"
 		},
 		{
-			display: "Jobs",
+			display: $_("__layout.navBar.login"),
 			path: "/jobs"
 		},
 		{
-			display: "Projects",
+			display: $_("__layout.navBar.register"),
 			path: "/projects"
 		}
 	];
@@ -51,8 +52,8 @@
 		</div>
 
 		<div class="end">
-			<Button text="Login" />
-			<Button text="Register" style="outline" />
+			<Button text={$_("__layout.navBar.login")} />
+			<Button text={$_("__layout.navBar.register")} style="outline" />
 		</div>
 	</div>
 </div>

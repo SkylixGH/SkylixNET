@@ -1,5 +1,11 @@
 <script>
     import NavBar from "../lib/NavBar.svelte";
+    import { waitLocale } from "svelte-i18n";
+    import "../locale/i18n";
+
+    export async function preload() {
+        return waitLocale();
+    }
 </script>
 
 <div class="root">

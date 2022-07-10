@@ -1,0 +1,18 @@
+{
+  "__error": {
+    "404": "The requested page was not found.",
+    "500": "The server encountered an error.",
+    "other": "An unexplained error occurred! Try searching up the error code."
+  },
+  "__layout": {
+    "navBar": {
+      "home": "Home",
+        "about": "About",
+        "contact": "Contact",
+      "jobs": "Jobs",
+      "projects": "Projects",
+      "login": "Login",
+      "register": "Register"
+    }
+  }
+}
