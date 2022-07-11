@@ -5,8 +5,8 @@
 
 <PageView>
 	<Landing
-			title="Elixor Framework ️‍🔥"
-			header="Build Powerful Applications With Elixor!"
-			description="Elixor is a framework for building powerful applications with Svelte. It is a collection of components that can be used to build a wide range of applications."
+			title="Skylix - Open Source and Comercial Software"
+			header="Powering the world with Open Source"
+			description="Skylix is a company that strives to create powerful commercial products and frameworks for completely free! We also offer many public premium services for online communication and MORE!"
 	/>
 </PageView>

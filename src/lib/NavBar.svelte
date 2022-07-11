@@ -72,13 +72,13 @@
 
 <div class="navBar">
 	<div class="inner">
-		<div class="logo">
+		<a href="/" class="logo">
 			<img
 					src="https://raw.githubusercontent.com/SkylixGH/Info/main/logos/LogoDark.svg"
 					alt="Logo"
 					draggable="false"
 			/>
-		</div>
+		</a>
 
 		<div class="middle">
 			{#each links as link, index}
