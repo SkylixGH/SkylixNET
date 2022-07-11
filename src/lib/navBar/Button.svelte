@@ -30,12 +30,14 @@
       transition: $transition1;
       cursor: pointer;
       letter-spacing: 1px;
-      font-size: 11px;
+      font-size: 12px;
         text-transform: uppercase;
 	  position: relative;
+		font-weight: 600;
 
 	  .invisibleText {
 		opacity: 0;
+		  font-size: 12px;
 	  }
 
       &.styleText {

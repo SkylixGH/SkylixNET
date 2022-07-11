@@ -58,6 +58,7 @@
             background: -webkit-linear-gradient(80deg, $brand2, $brand2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+          font-weight: 600;
         }
 
         span {

@@ -1,10 +1,13 @@
 <script lang="ts">
 	import Button from "./navBar/Button.svelte";
 	import { _ } from "svelte-i18n";
+	import {page} from "$app/stores";
+	import {onMount} from "svelte";
 
 	interface LinkItem {
         display: string;
         path: string;
+		active?: boolean;
 	}
 
     const links: LinkItem[] = [
@@ -29,6 +32,29 @@
 			path: "/projects"
 		}
 	];
+
+	function calculateActiveLinks() {
+		const activeMatches: number[] = [];
+
+		links.forEach((link, index) => {
+			link.active = false;
+
+			if (
+					link.path === $page.url.pathname ||
+					$page.url.pathname.startsWith(link.path)
+			) {
+				activeMatches.push(index);
+			}
+		});
+
+		links[activeMatches[activeMatches.length - 1]].active = true;
+	}
+
+	calculateActiveLinks();
+
+	onMount(() => {
+		let lastUrl = "";
+	})
 </script>
 
 <div class="navBar">
@@ -43,7 +69,10 @@
 
 		<div class="middle">
 			{#each links as link, index}
-				<a href="{link.path}">{link.display}</a>
+				<a
+						href="{link.path}"
+						class={link.active ? "active" : ""}
+				>{link.display}</a>
 
 				{#if index < links.length - 1}
 					<span></span>
@@ -120,7 +149,6 @@
 
 	  .middle {
 		display: flex;
-		gap: 10px;
 		color: $text1;
 		align-items: center;
 		  position: absolute;
@@ -140,8 +168,9 @@
 		  display: flex;
 		  align-items: center;
 			text-transform: uppercase;
-			font-size: 11px;
+			font-size: 12px;
 		  position: relative;
+			padding: 0 10px;
 
 		  &:after {
 			content: "";
@@ -150,10 +179,10 @@
 			background: $brand2;
 			bottom: 20px;
 			left: 50%;
-			width: calc(100% - 20px);
+			width: calc(100% - 40px);
 			height: 3px;
 			border-radius: 30px;
-			transform: translate(-50%, 0);
+			transform: translate(-50%, -100%) scale(0);
 			opacity: 0;
 			transition: $transition1;
 		  }
@@ -163,8 +192,13 @@
 
 			&:after {
               opacity: 1;
+				transform: translate(-50%, 0) scale(1);
             }
 		  }
+
+			&.active {
+				color: $brand2;
+			}
 		}
 
 		span {
