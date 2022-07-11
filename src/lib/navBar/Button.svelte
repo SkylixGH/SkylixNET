@@ -1,6 +1,4 @@
 <script lang="ts">
-    import {onMount} from "svelte";
-
     export let text = "Default text";
     export let style: "text"
         | "outline" = "text";
@@ -94,7 +92,7 @@
         &:hover {
           .sheetCover {
 			opacity: 0;
-			transform: scale(0.9);
+			transform: scale(0.5);
 		  }
 
           .text {

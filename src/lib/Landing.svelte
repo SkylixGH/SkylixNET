@@ -56,7 +56,7 @@
 		  .title {
 			color: $text2;
 			text-transform: uppercase;
-			font-size: 11px;
+			font-size: 12px;
 		  }
 
 		  h1 {
@@ -70,12 +70,12 @@
 		}
 
 		@media (max-width: 1100px) {
-		  justify-content: center;
-
-		  .image {
-			display: none;
+		  .info {
+		  	h1 {
+			  font-size: 40px;
+			}
 		  }
-		}
+        }
 	  }
 	}
 </style>

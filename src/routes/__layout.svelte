@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import NavBar from "../lib/NavBar.svelte";
     import { waitLocale } from "svelte-i18n";
     import "../locale/i18n";

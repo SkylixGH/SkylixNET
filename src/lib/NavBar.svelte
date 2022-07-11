@@ -54,7 +54,20 @@
 
 	onMount(() => {
 		let lastUrl = "";
-	})
+
+        const urlObserver = new MutationObserver((mut) => {
+            if (location.href !== lastUrl) {
+                lastUrl = location.href;
+                calculateActiveLinks();
+			}
+		});
+
+        urlObserver.observe(document, { subtree: true, childList: true });
+
+        return () => {
+			urlObserver.disconnect();
+		};
+	});
 </script>
 
 <div class="navBar">
@@ -189,15 +202,15 @@
 
 		  &:hover {
 			color: $brand2;
-
-			&:after {
-              opacity: 1;
-				transform: translate(-50%, 0) scale(1);
-            }
 		  }
 
 			&.active {
 				color: $brand2;
+
+			  &:after {
+					opacity: 1;
+					transform: translate(-50%, 0) scale(1);
+				}
 			}
 		}
 
