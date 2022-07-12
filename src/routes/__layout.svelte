@@ -1,5 +1,6 @@
 <script lang="ts">
     import NavBar from "../lib/NavBar.svelte";
+    import Footer from "../lib/Footer.svelte";
     import { waitLocale } from "svelte-i18n";
     import "../locale/i18n";
 
@@ -15,7 +16,7 @@
         <slot></slot>
     </div>
 
-    FOOTER
+    <Footer />
 </div>
 
 <svelte:head>
