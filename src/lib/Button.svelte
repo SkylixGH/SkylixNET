@@ -1,24 +1,29 @@
 <script lang="ts">
-    export let text = "Default text";
-    export let style: "text"
+    export let display: "text"
         | "outline" = "text";
 </script>
 
 <button class={"button " +
-    `style${style.charAt(0).toUpperCase() + style.slice(1)}`}
+    `style${display.charAt(0).toUpperCase() + display.slice(1)}`}
 >
-	<span class="invisibleText">{text}</span>
+	<span class="invisibleText">
+		<slot />
+	</span>
 
 	<div class="sheetCover"></div>
-	<span class="text">{text}</span>
+	<span class="text">
+		<slot />
+	</span>
 
-	{#if style === "outline"}
-		<span class="textOverlay">{text}</span>
+	{#if display === "outline"}
+		<span class="textOverlay">
+			<slot />
+		</span>
 	{/if}
 </button>
 
 <style lang="scss">
-    @import "../../Color";
+    @import "../Color";
 
     .button {
       padding: 0 20px;
@@ -36,6 +41,7 @@
 	  .invisibleText {
 		opacity: 0;
 		  font-size: 12px;
+        white-space: nowrap;
 	  }
 
       &.styleText {
@@ -47,6 +53,7 @@
 		  top: 50%;
 		  left: 50%;
 		  transform: translate(-50%, -50%);
+          white-space: nowrap;
 		}
 
         &:hover {
@@ -79,6 +86,7 @@
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
 		  transition: $transition1;
+          white-space: nowrap;
 		}
 
 		.textOverlay {
@@ -87,6 +95,7 @@
           -webkit-background-clip: initial;
           -webkit-text-fill-color: initial;
 		  background: transparent;
+		  white-spacing: nowrap;
         }
 
         &:hover {

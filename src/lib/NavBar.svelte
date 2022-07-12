@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from "./navBar/Button.svelte";
+	import Button from "./Button.svelte";
 	import { _ } from "svelte-i18n";
 	import {page} from "$app/stores";
 	import {onMount} from "svelte";
@@ -93,9 +93,18 @@
 			{/each}
 		</div>
 
-		<div class="end">
-			<Button text={$_("__layout.navBar.login")} />
-			<Button text={$_("__layout.navBar.register")} style="outline" />
+		<div class="end desktop">
+			<Button>
+				{$_("__layout.navBar.login")}
+			</Button>
+
+			<Button display="outline">
+				{$_("__layout.navBar.register")}
+			</Button>
+		</div>
+
+		<div class="end mobile">
+			hi lol
 		</div>
 	</div>
 </div>
@@ -122,6 +131,7 @@
 	  justify-content: space-between;
 	  margin: 0 40px;
 		position: relative;
+	  align-items: center;
 
       .logo {
 		position: relative;
@@ -164,10 +174,10 @@
 		display: flex;
 		color: $text1;
 		align-items: center;
-		  position: absolute;
-		  top: 50%;
-		  left: 50%;
-		  transform: translate(-50%, -50%);
+		  //position: absolute;
+		  //top: 50%;
+		  //left: 50%;
+		  //transform: translate(-50%, -50%);
 
 		@media (max-width: 800px) {
 		  display: none;
@@ -226,6 +236,20 @@
 			display: flex;
 			gap: 10px;
 		  align-items: center;
+
+		  &.mobile {
+			display: none;
+		  }
+
+          @media (max-width: 800px) {
+            &.mobile {
+			  display: flex;
+			}
+
+			&.desktop {
+			  display: none;
+            }
+          }
 		}
 	}
   }
