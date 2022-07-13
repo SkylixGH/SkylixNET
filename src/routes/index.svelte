@@ -13,4 +13,12 @@
 
 	Welcome to the Skylix official homepage!<br />
 	There isn't much going on here at the moment, check back later!
+
+	<br />
+	<br />
+
+	<div>
+		<Button display="outline">Discord</Button>
+		<Button>Twitter</Button>
+	</div>
 </PageView>
