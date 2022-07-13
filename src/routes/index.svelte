@@ -11,6 +11,4 @@
 			header="Powering the world with Open Source"
 			description="Skylix is a company that strives to create powerful commercial products and frameworks for completely free! We also offer many public premium services for online communication and MORE!"
 	/>
-
-	<FeatureCards />
 </PageView>
