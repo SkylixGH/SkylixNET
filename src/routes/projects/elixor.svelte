@@ -28,6 +28,22 @@
             {
                 title: "High Coverage",
                 icon: "nimbus:stats"
+            },
+            {
+                title: "Secure",
+                icon: "ant-design:lock-outlined"
+            },
+            {
+                title: "Open Source",
+                icon: "ant-design:github-filled"
+            },
+            {
+                title: "MIT License",
+                icon: "tabler:license"
+            },
+            {
+                title: "Community Support",
+                icon: "fluent:people-community-16-regular"
             }
 		]}
 	/>

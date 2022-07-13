@@ -97,7 +97,6 @@
         padding: 0 40px;
         color: $text3;
         border-top: 1px solid $dynamicLayer2;
-        margin-top: 50px;
 
       .inner {
         width: 100%;
