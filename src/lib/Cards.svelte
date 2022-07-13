@@ -37,6 +37,7 @@
 		display: flex;
 	  		flex-wrap: wrap;
 	  		justify-content: center;
+	  padding: 20px 0;
 	  gap: 10px;
 
 	  .card {
@@ -59,9 +60,10 @@
 		  display: flex;
 		  align-items: center;
 			justify-content: center;
+		  overflow: hidden;
 
 		  img {
-			width: 100%;
+			width: 25%;
 			transition: $transition1;
 		  }
 		}
@@ -72,7 +74,12 @@
 		}
 
 		&:hover {
-		  background: $dynamicLayer2;
+		  background: $brand2;
+		  color: $brandText2;
+
+		  .title {
+			color: $brandText1;
+		  }
 
 		  .banner > img {
 			transform: scale(1.2);

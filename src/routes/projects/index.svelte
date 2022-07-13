@@ -8,9 +8,9 @@ import Cards from "../../lib/Cards.svelte";
 	<Cards cards={[
         {
             title: "Elixor Framework",
-            image: "https://raw.githubusercontent.com/SkylixGH/Elixor/Master/resources/ElixorBanner.svg",
+            image: "https://raw.githubusercontent.com/SkylixGH/Elixor/Master/resources/ElixorLogo.svg",
             description: "An all purpose polygot high coverage framework for building high performance server side and client applications with low development costs and maintenance costs.",
-            url: "/projects/elixor",
+            url: "/projects/elixor"
         },
         {
             title: "SkylixMC",

@@ -55,7 +55,8 @@
 		transition: $transition1;
 
 		&:hover {
-		  background: $dynamicLayer2;
+		  background: $brand2;
+		  color: $brandText2;
 		}
 
 		.header {
