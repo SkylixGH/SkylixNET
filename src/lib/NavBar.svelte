@@ -3,6 +3,7 @@
 	import { _ } from "svelte-i18n";
 	import {page} from "$app/stores";
 	import {onMount} from "svelte";
+    import Icon from "@iconify/svelte";
 
 	interface LinkItem {
         display: string;
@@ -104,7 +105,9 @@
 		</div>
 
 		<div class="end mobile">
-			hi lol
+			<button>
+				<Icon icon="charm:menu-hamburger" />
+			</button>
 		</div>
 	</div>
 </div>
@@ -239,6 +242,32 @@
 
 		  &.mobile {
 			display: none;
+
+			button {
+			  width: 30px;
+			  height: 30px;
+			  border: none;
+			  border-radius: $radius1;
+			  display: flex;
+			  padding: 0;
+			  align-items: center;
+			  justify-content: center;
+			  transition: $transition1;
+			  color: $text2;
+			  background: transparent;
+			  font-size: 16px;
+			  cursor: pointer;
+
+			  &:hover {
+				color: $brand2;
+				background: $dynamicLayer1;
+
+				&:active {
+					background: $brand2;
+				  color: $brandText2;
+				}
+			  }
+			}
 		  }
 
           @media (max-width: 800px) {

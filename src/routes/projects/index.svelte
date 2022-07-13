@@ -3,6 +3,6 @@
 import PageView from "../../lib/PageView.svelte";
 </script>
 
-<PageView>
+<PageView title="Projects">
 	<a href="projects/elixor">Elixor</a>
 </PageView>

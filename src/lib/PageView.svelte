@@ -1,6 +1,12 @@
 <script lang="ts">
 	import { fly } from "svelte/transition";
+
+    export let title: string;
 </script>
+
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>
 
 <div
 		class="pageView"

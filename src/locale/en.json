@@ -13,6 +13,9 @@
       "projects": "Projects",
       "login": "Login",
       "register": "Register"
+    },
+    "footer": {
+      "copyright": "Copyright Skylix LLC. All rights reserved."
     }
   }
 }

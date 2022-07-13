@@ -4,6 +4,8 @@
     import { waitLocale } from "svelte-i18n";
     import "../locale/i18n";
 
+    let footerHeight = 100;
+
     export async function preload() {
         return waitLocale();
     }
@@ -12,7 +14,7 @@
 <div class="root">
     <NavBar />
 
-    <div class="main">
+    <div class="main" style={`margin-bottom: ${footerHeight}px`}>
         <slot></slot>
     </div>
 
@@ -34,7 +36,6 @@
     overflow: auto;
 
     .main {
-        height: 100%;
         color: $text3;
         margin-top: 70px;
     }

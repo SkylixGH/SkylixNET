@@ -2,6 +2,6 @@
     import PageView from "../lib/PageView.svelte";
 </script>
 
-<PageView>
+<PageView title="About Skylix">
 	Hi Lol
 </PageView>
