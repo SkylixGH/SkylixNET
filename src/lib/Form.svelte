@@ -157,6 +157,8 @@
                             transition: $transition2;
                             transform: rotate(40deg) scale(0);
                             padding: 0;
+                            font-size: 16px;
+                            margin-top: 3px;
 
                             & > * {
                                 padding: 0;
