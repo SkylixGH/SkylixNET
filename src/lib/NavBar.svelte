@@ -100,7 +100,7 @@
 				{$_("__layout.navBar.login")}
 			</Button>
 
-			<Button display="outline">
+			<Button on:click={() => goto("/register")} display="outline">
 				{$_("__layout.navBar.register")}
 			</Button>
 		</div>

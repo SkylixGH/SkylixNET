@@ -4,23 +4,12 @@
 
 	interface InputRegistryItem {
 		label: string;
-		type: "text" | "password";
-		placeholder?: string;
+		type: "text" | "password" | "email" | "name";
+		placeholder?: string | [ string, string ];
 		passwordShown?: boolean;
     }
 
-	const items: InputRegistryItem[] = [
-		{
-			label: "Email",
-            type: "text",
-            placeholder: "Your Email"
-        },
-		{
-			label: "Password",
-            type: "password",
-            placeholder: "Your Password"
-        }
-    ];
+	export let items: InputRegistryItem[] = [];
 
 	let form: HTMLFormElement;
 </script>
@@ -33,24 +22,46 @@
             {#each items as item}
                 <span>{item.label}</span>
 
-                <label class="input">
-                    <input
-                            type={item.type}
-                            placeholder={item.placeholder}
-                    />
+                {#if item.type !== "name"}
+                    <label class="input">
+                        <input
+                                type={item.type === "password" ? (
+                                    item.passwordShown
+                                        ? "text"
+                                        : "password"
+                                ) : item.type}
+                                placeholder={Array.isArray(item.placeholder) ? item.placeholder.join(" ") : item.placeholder}
+                        />
 
-                    {#if item.type === "password"}
-                        <button on:click={() => item.passwordShown = !item.passwordShown} tabindex="-1" type="button">
-                        <span class="show" style={`${!item.passwordShown ? "opacity: 0; transform: rotate(40deg) scale(0);" : "transform: scale(1) rotate(0deg); opacity: 1;"}`}>
-                            <Icon icon="bx:show" />
-                        </span>
+                        {#if item.type === "password"}
+                            <button on:click={() => item.passwordShown = !item.passwordShown} tabindex="-1" type="button">
+                                <span
+                                        class={`icon ${!item.passwordShown ? "_visible" : ""}`}
+                                >
+                                    <Icon icon="bx:show" />
+                                </span>
 
-                            <span class="hide" style={`${item.passwordShown ? "opacity: 0; transform: rotate(40deg) scale(0);" : "transform: scale(1) rotate(0deg); opacity: 1;"}`}>
-                            <Icon icon="bx:hide" />
-                        </span>
-                        </button>
-                    {/if}
-                </label>
+                                <span
+                                        class={`icon ${item.passwordShown ? "_visible" : ""}`}
+                                >
+                                    <Icon icon="bx:hide" />
+                                </span>
+                            </button>
+                        {/if}
+                    </label>
+                {:else}
+                    <div class="rowInputs">
+                        <input
+                                placeholder={Array.isArray(item.placeholder) ? item.placeholder[0] : item.placeholder}
+                                class="fName"
+                        />
+
+                        <input
+                                placeholder={Array.isArray(item.placeholder) ? item.placeholder[1] : item.placeholder}
+                                class="lName"
+                        />
+                    </div>
+                {/if}
 
                 <div></div>
             {/each}
@@ -79,101 +90,133 @@
     @import "../Color";
 
     .form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        max-width: 500px;
         width: 100%;
-        height: 100%;
 
-        .inner {
-            max-width: 500px;
+        h1 {
             width: 100%;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            margin: 0 0 20px 0;
+            padding: 0;
+        }
 
-            h1 {
-                width: 100%;
+        .layout {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .input {
                 display: flex;
-                align-content: center;
+                background: $dynamicLayer1;
+                border-bottom: 2px solid $dynamicLayer2;
+                height: 35px;
+                border-radius: $radius1;
+                overflow: hidden;
+                align-items: center;
                 justify-content: center;
-            }
+                transition: $transition1;
 
-            .layout {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
+                &:hover {
+                    border-color: $dynamicLayer4;
+                }
 
-                .input {
+                &:focus-within {
+                    border-color: $brand2;
+                }
+
+                input {
+                    width: auto;
+                    flex: 1;
+                    height: 100%;
+                    background: transparent;
+                    color: $text3;
+                    outline: none;
+                    border: none;
+                    padding: 10px;
+
+                    &:-webkit-autofill,
+                    &:-webkit-autofill:hover,
+                    &:-webkit-autofill:focus {
+                        border-color: $brand1;
+                    }
+                }
+
+                button {
+                    width: 25px;
+                    height: 25px;
+                    position: relative;
                     display: flex;
-                    background: $dynamicLayer1;
-                    border-bottom: 2px solid $dynamicLayer2;
-                    height: 35px;
-                    border-radius: $radius1;
-                    overflow: hidden;
                     align-items: center;
                     justify-content: center;
-                    transition: $transition1;
+                    margin-right: 10px;
+                    color: $text3;
+                    background: transparent;
+                    outline: none;
+                    border: none;
+                    transition: $transition2;
+                    padding: 0;
+                    border-radius: $radius1;
 
                     &:hover {
-                        border-color: $dynamicLayer4;
+                        background: $dynamicLayer1;
                     }
 
-                    &:focus-within {
-                        border-color: $brand2;
-                    }
-
-                    input {
-                        width: auto;
-                        flex: 1;
-                        height: 100%;
-                        background: transparent;
-                        color: $text3;
-                        outline: none;
-                        border: none;
-                        padding: 10px;
-                    }
-
-                    button {
-                        width: 25px;
-                        height: 25px;
-                        position: relative;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin-right: 10px;
-                        color: $text3;
-                        background: transparent;
-                        outline: none;
-                        border: none;
+                    .icon {
+                        position: absolute;
                         transition: $transition2;
+                        transform: rotate(40deg) scale(0);
                         padding: 0;
-                        border-radius: $radius1;
+                        font-size: 16px;
+                        margin-top: 3px;
+                        opacity: 0;
 
-                        &:hover {
-                            background: $dynamicLayer1;
+                        &._visible {
+                            transform: rotate(0) scale(1);
+                            opacity: 1;
                         }
 
-                        .show, .hide {
-                            position: absolute;
-                            transition: $transition2;
-                            transform: rotate(40deg) scale(0);
+                        & > * {
                             padding: 0;
-                            font-size: 16px;
-                            margin-top: 3px;
-
-                            & > * {
-                                padding: 0;
-                                margin: 0;
-                            }
+                            margin: 0;
                         }
                     }
                 }
             }
 
-            .buttons {
+            .rowInputs {
                 display: flex;
-                margin-top: 20px;
+                flex-direction: row;
                 gap: 10px;
+
+                input {
+                    flex: 1;
+                    height: 35px;
+                    border-radius: $radius1;
+                    padding: 10px;
+                    border: none;
+                    border-bottom: 2px solid $dynamicLayer2;
+                    color: $text3;
+                    outline: none;
+                    transition: $transition1;
+                    background: $dynamicLayer1;
+
+                    &:hover {
+                        border-color: $dynamicLayer4;
+                    }
+
+                    &:focus {
+                        border-color: $brand2;
+                    }
+                }
             }
+        }
+
+        .buttons {
+            display: flex;
+            margin-top: 20px;
+            gap: 10px;
         }
     }
 </style>

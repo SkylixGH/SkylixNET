@@ -4,9 +4,17 @@
 	import Flex from "../lib/Flex.svelte";
 </script>
 
-<PageView title="Login">
+<PageView title="Register">
     <Flex width="100%" height="100%">
         <Form items={[
+		{
+			label: "Name",
+            type: "name",
+            placeholder: [
+				"First Name",
+                "Last Name"
+            ]
+        },
 		{
 			label: "Email",
             type: "email",
