@@ -20,6 +20,7 @@
             {
                 title: "Easy to Use",
                 icon: "ant-design:build-filled",
+                description: "The Elixor API is a high level C++ API"
             },
             {
                 title: "Polygot Framework",

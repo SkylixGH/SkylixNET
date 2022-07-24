@@ -74,12 +74,7 @@
 		}
 
 		&:hover {
-		  background: $brand2;
-		  color: $brandText2;
-
-		  .title {
-			color: $brandText1;
-		  }
+		  background: $dynamicLayer2;
 
 		  .banner > img {
 			transform: scale(1.2);

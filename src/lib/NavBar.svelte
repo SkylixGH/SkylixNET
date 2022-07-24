@@ -4,6 +4,7 @@
 	import {page} from "$app/stores";
 	import {onMount} from "svelte";
     import Icon from "@iconify/svelte";
+	import {goto} from "$app/navigation";
 
 	interface LinkItem {
         display: string;
@@ -95,7 +96,7 @@
 		</div>
 
 		<div class="end desktop">
-			<Button>
+			<Button on:click={() => goto("/login")}>
 				{$_("__layout.navBar.login")}
 			</Button>
 

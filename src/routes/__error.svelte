@@ -11,6 +11,7 @@
 
 <script lang="ts">
     import { _ } from "svelte-i18n";
+	import PageView from "../lib/PageView.svelte";
 
     export let title: string;
     export let code: number;
@@ -36,11 +37,13 @@
     <title>{title}</title>
 </svelte:head>
 
-<div class="error">
-    <h1>{ code }</h1>
-    <span></span>
-    <p>{ messageDisplay }</p>
-</div>
+<PageView title={"Error " + code}>
+    <div class="error">
+        <h1>{ code }</h1>
+        <span></span>
+        <p>{ messageDisplay }</p>
+    </div>
+</PageView>
 
 <style lang="scss">
     @import "../Color";

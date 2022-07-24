@@ -1,9 +1,18 @@
 <script lang="ts">
-    export let display: "text"
+    import {createEventDispatcher} from "svelte";
+
+	export let display: "text"
         | "outline" = "text";
+
+	const dispatch = createEventDispatcher();
 </script>
 
-<button class={"button " +
+<button
+		type="button"
+		on:click={() => {
+			dispatch("click");
+		}}
+		class={"button " +
     `style${display.charAt(0).toUpperCase() + display.slice(1)}`}
 >
 	<span class="invisibleText">

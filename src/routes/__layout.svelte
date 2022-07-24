@@ -1,6 +1,7 @@
 <script lang="ts">
     import NavBar from "../lib/NavBar.svelte";
     import Footer from "../lib/Footer.svelte";
+	import Global from "../lib/Global.svelte";
     import { waitLocale } from "svelte-i18n";
     import "../locale/i18n";
 
@@ -12,6 +13,7 @@
 </script>
 
 <div class="root">
+    <Global />
     <NavBar />
 
     <div class="main" style={`margin-bottom: ${footerHeight}px`}>
