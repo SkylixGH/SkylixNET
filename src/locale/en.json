@@ -17,5 +17,14 @@
     "footer": {
       "copyright": "Copyright Skylix LLC. All rights reserved."
     }
+  },
+  "__pages": {
+    "projects": {
+      "__pages": {
+        "elixor": {
+
+        }
+      }
+    }
   }
 }

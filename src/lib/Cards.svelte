@@ -21,6 +21,14 @@
 					src={card.image}
 					draggable="false"
 					alt={card.title}
+					class="background"
+				/>
+
+				<img
+						src={card.image}
+						draggable="false"
+						alt={card.title}
+						class="showIcon"
 				/>
 			</div>
 
@@ -36,12 +44,12 @@
 	.cards {
 		display: flex;
 	  		flex-wrap: wrap;
-	  		justify-content: center;
 	  padding: 20px 0;
 	  gap: 10px;
 
 	  .card {
-		flex: 250px;
+		flex: 300px;
+		  width: 100%;
 		overflow: hidden;
 		max-width: 300px;
 		background: $dynamicLayer1;
@@ -61,11 +69,23 @@
 		  align-items: center;
 			justify-content: center;
 		  overflow: hidden;
+			position: relative;
 
-		  img {
-			width: 25%;
-			transition: $transition1;
-		  }
+			img {
+				position: absolute;
+
+				&.showIcon {
+				transition: $transition1;
+					width: 25%;
+				}
+
+				&.background {
+					min-width: 100%;
+					transition: $transition3;
+					min-height: 100%;
+					filter: blur(20px) opacity(0.5);
+				}
+			}
 		}
 
 		.title {
@@ -76,9 +96,13 @@
 		&:hover {
 		  background: $dynamicLayer2;
 
-		  .banner > img {
+		  .banner > .showIcon {
 			transform: scale(1.2);
 		  }
+
+			.banner > .background {
+				transform: scale(1.2);
+			}
 		}
 	  }
 	}

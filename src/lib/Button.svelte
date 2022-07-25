@@ -1,6 +1,7 @@
 <script lang="ts">
     import {createEventDispatcher} from "svelte";
 
+	export let mega = false;
 	export let display: "text"
         | "outline" = "text";
 
@@ -13,7 +14,8 @@
 			dispatch("click");
 		}}
 		class={"button " +
-    `style${display.charAt(0).toUpperCase() + display.slice(1)}`}
+    `style${display.charAt(0).toUpperCase() + display.slice(1)}`
+    + (mega ? " mega" : "")}
 >
 	<span class="invisibleText">
 		<slot />
@@ -122,5 +124,14 @@
 		  }
         }
       }
+
+		&.mega {
+			height: 40px;
+			border-radius: $radius3;
+
+			.sheetCover {
+				border-radius: calc($radius3 / 1.1);
+			}
+		}
     }
 </style>

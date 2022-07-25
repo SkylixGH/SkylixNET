@@ -15,8 +15,8 @@
 		<p>{description}</p>
 
 		<div class="buttons">
-			<Button display="outline">Get Started</Button>
-			<Button>Learn More</Button>
+			<Button mega={true} display="outline">Get Started</Button>
+			<Button mega={true}>Learn More</Button>
 		</div>
 	</div>
 
