@@ -111,6 +111,10 @@
 			</button>
 		</div>
 	</div>
+
+	<div class="sideFlyOut">
+		Hello
+	</div>
 </div>
 
 <style lang="scss">
@@ -127,6 +131,12 @@
 	justify-content: center;
 	background: $layer1;
 	z-index: 100;
+
+	  .sideFlyOut {
+		  position: fixed;
+		  top: 70px;
+		  right: 0;
+	  }
 
     .inner {
 	  width: 100%;

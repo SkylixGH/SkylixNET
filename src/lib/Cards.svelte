@@ -46,6 +46,7 @@
 	  		flex-wrap: wrap;
 	  padding: 20px 0;
 	  gap: 10px;
+		justify-content: center;
 
 	  .card {
 		flex: 300px;

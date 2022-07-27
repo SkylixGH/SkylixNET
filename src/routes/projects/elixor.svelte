@@ -17,12 +17,12 @@
             {
                 title: "Fast and Responsive",
                 icon: "ic:outline-speed",
-                description: "Hi"
+                description: "Elixor is a highly optimised and speedy framework designed for low response times and low resource consumption."
             },
             {
                 title: "Easy to Use",
                 icon: "ant-design:build-filled",
-                description: "The Elixor API is a high level C++ API"
+                description: "The Elixor API is a high level C++ API, thus meaning you don't have to write a lot of code to get something working!"
             },
             {
                 title: "Polygot Framework",
