@@ -22,7 +22,7 @@
         },
         {
             image: "akar-icons:discord-fill",
-            url: "https://discord.com/invite/b9vcR6evgG"
+            url: "https://discord.gg/pW73rYVH3T"
         }
     ];
 </script>
