@@ -1,9 +1,8 @@
 <script lang="ts">
-import Buttons from "./nav/Buttons.svelte";
-import Links from "./nav/Links.svelte";
-import Logo from "./nav/Logo.svelte";
-import Sidebar from "./nav/Sidebar.svelte";
-
+    import Buttons from "./nav/Buttons.svelte";
+    import Links from "./nav/Links.svelte";
+    import Logo from "./nav/Logo.svelte";
+    import Sidebar from "./nav/Sidebar.svelte";
 </script>
 
 <div class="nav">
