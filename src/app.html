@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<style>
+			:root {
+				--solid1: #202020;
+				--solid2: #272727;
+				--solid3: #2f2f2f;
+				--solid4: #373737;
+				--solid5: #3f3f3f;
+
+				--dynamic1: rgba(255, 255, 255, 2%);
+				--dynamic2: rgba(255, 255, 255, 5%);
+				--dynamic3: rgba(255, 255, 255, 10%);
+
+				--text1: #999999;
+				--text2: #ffffff;
+
+				--brand1: #ac3b4c;
+				--brand2: #ff556e;
+
+				--brandText: #202020;
+
+				--radius1: 3px;
+				--radius2: 7px;
+
+				--transition: 100ms;
+
+				--space1: 5px;
+				--space2: 10px;
+				--space3: 20px;
+			}
+
+			body {
+				margin: 0;
+				background: var(--solid1);
+				padding-top: 60px;
+				color: blue;
+			}
+
+			* {
+				box-sizing: border-box;
+				font-family: sans-serif;
+			}
+		</style>
+
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&display=swap" rel="stylesheet">
-
+		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 	</head>
 	<body>
