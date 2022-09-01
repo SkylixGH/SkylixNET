@@ -1,6 +1,5 @@
 <script lang="ts">
-import __global__ from "../store/__global__";
-
+    import __global__ from "../store/__global__";
     import Input from "./Input.svelte";
     import Text from "./Text.svelte";
 
@@ -27,17 +26,19 @@ import __global__ from "../store/__global__";
 
     export let top: number | false = false;
     export let right: number | false = false;
+    export let onClose: () => void;
 
     let topComp = 30;
     let rightComp = 30;
+
+    let mouseOverPop = false;
 
     export let width = 400;
     export let open = false;
 
     export let items: Item[] = [];
 
-    if (top != false) topComp = top;
-    if (right != false) rightComp = right;
+    if (!open) onClose();
 
     __global__.mouseRight.subscribe(mr => {
         if (right != false) rightComp = right;
@@ -52,13 +53,21 @@ import __global__ from "../store/__global__";
         if (open) return;
         topComp = mt;
     });
+
+    __global__.mouseLeftBtnDown.subscribe(lDown => {
+        if (!mouseOverPop && lDown) {
+            onClose();
+        }
+    });
 </script>
 
 <div 
     class="pop"
+    on:mouseenter={() => { mouseOverPop = true; }}
+    on:mouseleave={() => { mouseOverPop = false; }}
     style={`
-        top: ${topComp}px;
-        right: ${rightComp}px;
+        top: ${top != false ? top : topComp}px;
+        right: ${right != false ? right : rightComp}px;
         width: ${width}px;
         opacity: ${open ? 1 : 0};
         pointer-events: ${open ? "all" : "none"};

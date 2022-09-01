@@ -43,7 +43,7 @@
             
             &:after {
                 content: '';
-                transform: translateY(5px);
+                transform: translateY(5px) scaleX(0.3);
                 position: absolute;
                 width: calc(100% - ($space2 * 2));
                 border-radius: $radius2;
@@ -58,7 +58,7 @@
 
                 &:after {
                     background: $brand2;
-                    transform: translate(0);
+                    transform: translate(0) scale(1);
                 }
             }
         }

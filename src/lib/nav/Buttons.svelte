@@ -21,6 +21,7 @@
     <Pop
         top={60}
         open={searchOpen}
+        onClose={() => searchOpen = false}
         items={[
             {
                 type: "input",
@@ -33,6 +34,7 @@
     <Pop
         top={60}
         open={languageSelectOpen}
+        onClose={() => languageSelectOpen = false}
         items={[
             {
                 type: "input",
