@@ -138,7 +138,7 @@
 
     .pop {
         position: fixed;
-        background: $solid2;
+        background: $solid1;
         min-height: 30px;
         min-width: 30px;
         border-radius: $radius2;
@@ -147,8 +147,9 @@
         flex-direction: column;
         transition: $transition;
         gap: $space2;
+        border: 1px solid $soft;
         box-shadow: 
             0 0 10px -5px black,
-            0 0 30px -15px black,
+            0 0 30px -10px #000000ab,
     }
 </style>

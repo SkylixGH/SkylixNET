@@ -2,6 +2,8 @@
     import Nav from "../lib/Nav.svelte";
     import __global__ from "../store/__global__";
 
+    let docReady = false;
+
     if (typeof window != "undefined") {
         window.addEventListener("mousemove", (e) => {
             __global__.mouseX.set(e.clientX);
@@ -32,8 +34,64 @@
                 height: document.body.clientHeight
             });
         });
+
+        // on window ready
+        if (document.readyState === "complete") {
+            docReady = true;
+        } else {
+            document.addEventListener("readystatechange", () => {
+                if (document.readyState === "complete") {
+                    docReady = true;
+                }
+            });
+        }
     }
 </script>
-<Nav />
 
+<Nav />
 <slot />
+
+<div class={`loader ${docReady ? 'ready' : ''}`}>
+    <img src="/logo/Logo.svg" alt="... Loading ..." />
+</div>
+
+<style lang="scss">
+    @import "../lib/Colors.scss";
+
+    .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: $solid1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+
+        &.ready {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes size {
+            0% {
+                transform: scale(0.9);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(0.9);
+            }
+        }
+
+        img {
+            width: 150px;
+            animation: size 3s infinite;
+        }
+    }
+</style>

@@ -35,12 +35,16 @@
         top={60}
         open={languageSelectOpen}
         onClose={() => languageSelectOpen = false}
-        width={500}
         items={[
             {
                 type: "input",
                 title: "Search for language",
                 placeholder: "Search for any language!"
+            },
+            { type: "break" },
+            {
+                type: "text",
+                value: "Select your language!"
             }
         ]}
     />
