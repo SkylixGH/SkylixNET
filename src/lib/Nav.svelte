@@ -25,7 +25,8 @@
         left: 0;
         width: 100vw;
         height: 60px;
-        backdrop-filter: blur(10px);
+        background: $solid1;
+        outline: 1px solid $soft;
         align-items: center;
         justify-content: center;
         padding: $space3;

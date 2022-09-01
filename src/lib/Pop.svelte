@@ -150,6 +150,7 @@
         border: 1px solid $soft;
         box-shadow: 
             0 0 10px -5px black,
-            0 0 30px -10px #000000ab,
+            0 0 30px -10px #000000ab;
+        z-index: 2147483647;
     }
 </style>

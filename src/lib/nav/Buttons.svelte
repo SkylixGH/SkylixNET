@@ -19,7 +19,7 @@
     <button class="text">Sign Up</button>
 
     <Pop
-        top={60}
+        top={50}
         open={searchOpen}
         onClose={() => searchOpen = false}
         items={[
@@ -32,7 +32,7 @@
     />
 
     <Pop
-        top={60}
+        top={50}
         open={languageSelectOpen}
         onClose={() => languageSelectOpen = false}
         items={[

@@ -10,7 +10,7 @@
     @import "Colors.scss";
 
     .text {
-        color: $text2;
+        color: $text1;
         font-size: 13px;
     }
 </style>
