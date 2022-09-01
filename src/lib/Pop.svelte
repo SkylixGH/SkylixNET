@@ -28,10 +28,34 @@
     export let right: number | false = false;
     export let onClose: () => void;
 
-    let topComp = 30;
-    let rightComp = 30;
+    let topComp = 0;
+    let rightComp = 0;
+    let leftComp = 0;
+
+    let forcedRight: number | false = false;
+
+    function getRight() {
+        return right != false ? right : rightComp;
+    }
+
+    function getTop() {
+        return top != false ? top : topComp;
+    }
+
+    let compiledTop = 0;
+    let compiledRight = 0;
+
+    function setCompiledTop() {
+        compiledTop = getTop();
+    }
+
+    function setCompiledRight() {
+        if (forcedRight != false) compiledRight = forcedRight;
+        else compiledRight = getRight();
+    }
 
     let mouseOverPop = false;
+    let windowWidth = typeof window != "undefined" ? window.innerWidth : 0;
 
     export let width = 400;
     export let open = false;
@@ -39,6 +63,19 @@
     export let items: Item[] = [];
 
     if (!open) onClose();
+
+    function handleLeftComputed() {
+        leftComp = windowWidth - width - rightComp;
+
+        if (leftComp < 20) {
+            forcedRight = windowWidth - width - 20;
+        } else {
+            forcedRight = false;
+        }
+
+        setCompiledRight();
+        setCompiledTop();
+    }
 
     __global__.mouseRight.subscribe(mr => {
         if (right != false) rightComp = right;
@@ -59,6 +96,11 @@
             onClose();
         }
     });
+
+    __global__.windowSize.subscribe((size) => {
+        windowWidth = size.width;
+        handleLeftComputed();
+    });
 </script>
 
 <div 
@@ -66,8 +108,8 @@
     on:mouseenter={() => { mouseOverPop = true; }}
     on:mouseleave={() => { mouseOverPop = false; }}
     style={`
-        top: ${top != false ? top : topComp}px;
-        right: ${right != false ? right : rightComp}px;
+        top: ${(() => { setCompiledTop(); return ""; } )()} ${compiledTop}px;
+        right: ${(() => { setCompiledRight(); return ""; } )()} ${compiledRight}px;
         width: ${width}px;
         opacity: ${open ? 1 : 0};
         pointer-events: ${open ? "all" : "none"};

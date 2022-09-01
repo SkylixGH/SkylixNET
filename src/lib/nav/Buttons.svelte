@@ -35,6 +35,7 @@
         top={60}
         open={languageSelectOpen}
         onClose={() => languageSelectOpen = false}
+        width={500}
         items={[
             {
                 type: "input",

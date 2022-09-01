@@ -8,8 +8,6 @@
             __global__.mouseY.set(e.clientY);
             __global__.mouseRight.set(window.innerWidth - e.clientX);
             __global__.mouseTop.set(e.clientY);
-
-            console.log(`[debug] mouseX: ${e.clientX} mouseY: ${e.clientY} mouseRight: ${window.innerWidth - e.clientX} mouseTop: ${e.clientY}`);
         });
 
         window.addEventListener("mousedown", (e) => {
@@ -26,6 +24,13 @@
             } else if (e.button == 2) {
                 __global__.mouseRightBtnDown.set(false);
             }
+        });
+
+        window.addEventListener("resize", () => {
+            __global__.windowSize.set({
+                width: document.body.clientWidth,
+                height: document.body.clientHeight
+            });
         });
     }
 </script>
