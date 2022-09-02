@@ -54,8 +54,8 @@
     }
 </script>
 
-<Nav />
 <slot />
+<Nav />
 
 <div class={`loader ${docReady ? 'ready' : ''}`}>
     <img src="/logo/Logo.svg" alt="... Loading ..." />
