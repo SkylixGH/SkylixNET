@@ -58,6 +58,15 @@
     }
 </script>
 
+<svelte:head>
+    <link rel="icon" type="image/svg+xml" href="/logo/Logo.svg" />
+
+    <title>S K Y L I X</title>
+    <meta content="S K Y L I X" property="og:title" />
+    <meta content="Skylix: Online social media platform and open source development" property="og:description" />
+    <meta content="#ff556e" data-react-helmet="true" name="theme-color" />
+</svelte:head>
+
 <slot />
 <Nav />
 

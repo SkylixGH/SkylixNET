@@ -24,11 +24,13 @@
         <button on:click={() => searchOpen = !searchOpen}>
             <Icon icon="lucide:search" />
         </button>
+    {/if}
 
         <button on:click={() => languageSelectOpen = !languageSelectOpen}>
             <Icon icon="lucide:languages" />
         </button>
 
+    {#if !mobile}
         <button class="text">Sign Up</button>
     {:else}
         <button on:click={() => mobileMenuOpen = !mobileMenuOpen} class="mobile-menu">

@@ -56,6 +56,7 @@ import { goto } from "$app/navigation";
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                transition: $transition;
             }
 
             &:hover {
