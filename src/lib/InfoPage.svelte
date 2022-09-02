@@ -34,7 +34,7 @@
 
             <div class="text-layer">
                 <h1>{ banner.text }</h1>
-                <h3>{ banner.subText }</h3>
+                <span>{ banner.subText }</span>
             </div>
         </div>
     {/if}
@@ -80,7 +80,7 @@
                 height: 100%;
                 object-fit: cover;
                 position: absolute;
-                filter: blur(0px) opacity(0.2);
+                filter: blur(0px) opacity(0.1);
             }
 
             .text-layer {
@@ -96,11 +96,11 @@
                     text-transform: uppercase;
                     font-weight: 400;
                     letter-spacing: $space2;
-                    font-size: 70px;
+                    font-size: 60px;
                     margin: 0;
                 }
 
-                h3 {
+                span {
                     color: $text1;
                     font-size: 13px;
                     margin: 0;
