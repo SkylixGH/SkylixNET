@@ -15,7 +15,7 @@
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
         { href: '/devops', label: 'DevOps' },
-        { href: '/learn-to-code', label: 'Learn Programming' },
+        { href: '/devops/learn-programming', label: 'Learn Programming' },
     ];
 </script>
 
