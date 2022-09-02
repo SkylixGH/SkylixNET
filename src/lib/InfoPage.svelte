@@ -1,6 +1,8 @@
 <script lang="ts">
+    import type LinkItem from "./LinkItem";
     import Nav from "./infoPage/Nav.svelte";
 
+    export let links: LinkItem[] = [];
     export let title = "Untitled";
     export let logo = "/logo/Logo.svg";
 </script>
@@ -9,29 +11,10 @@
     <Nav
         logo={logo}
         title={title}
+        items={links}
     />
-    hi lol
 
-    <br />
-    <br />
-    <br />
-
-    Hi lol
-
-    <br />
-    <br />
-    <br />
-
-    Hi lol
-
-    <br />
-    <br />
-    <br />
-
-    Hi lol
-
-    <div class="t" style="height: 200vh;"></div>
-
+    <slot />
 </div>
 
 <style lang="scss">

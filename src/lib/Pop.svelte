@@ -1,6 +1,8 @@
 <script lang="ts">
     import __global__ from "../store/__global__";
     import Input from "./Input.svelte";
+    import type LinkItem from "./LinkItem";
+import LinksArray from "./LinksArray.svelte";
     import Text from "./Text.svelte";
 
     interface ItemInput {
@@ -19,10 +21,16 @@
         type: "break";
     }
 
+    interface ItemLinksArray {
+        type: "linksArray";
+        items: LinkItem[];
+    }
+
     type Item = 
         ItemInput  |
         ItemText   |
-        ItemBreak;
+        ItemBreak  |
+        ItemLinksArray;
 
     export let top: number | false = false;
     export let right: number | false = false;
@@ -129,6 +137,10 @@
             />
         {:else if item.type === "break"}
             <div style="height: 5px"></div>
+        {:else if item.type === "linksArray"}
+            <LinksArray
+                items={item.items}
+            />
         {/if}
     {/each}
 </div>
