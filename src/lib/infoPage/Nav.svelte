@@ -2,6 +2,8 @@
     import type LinkItem from "../LinkItem";
     import Icon from "@iconify/svelte";
     import Pop from "../Pop.svelte";
+    import Text from "../Text.svelte";
+    import LinksArray from "../LinksArray.svelte";
 
     export let logo: string;
     export let title: string;
@@ -46,17 +48,12 @@
     <Pop
         open={menuOpen}
         onClose={() => menuOpen = false}
-        items={[
-            {
-                type: "text",
-                value: "Quick Navigation"
-            },
-            {
-                type: "linksArray",
-                items: items
-            }
-        ]}
-    />
+    >
+        <Text>Navigate</Text>
+        <LinksArray
+            items={items}
+        />
+    </Pop>
 </div>
 
 <style lang="scss">

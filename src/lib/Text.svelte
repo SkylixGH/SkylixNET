@@ -1,9 +1,5 @@
-<script lang="ts">
-    export let text = "";
-</script>
-
 <span class="text">
-    {text}
+    <slot />
 </span>
 
 <style lang="scss">

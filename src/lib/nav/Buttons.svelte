@@ -2,6 +2,9 @@
     import Icon from "@iconify/svelte";
     import Pop from "../Pop.svelte";
     import __global__ from "../../store/__global__";
+    import Input from "../Input.svelte";
+    import Text from "../Text.svelte";
+import LinksArray from "../LinksArray.svelte";
 
     let searchOpen = false;
     let languageSelectOpen = false;
@@ -22,61 +25,61 @@
         top={50}
         open={searchOpen}
         onClose={() => searchOpen = false}
-        items={[
-            {
-                type: "input",
-                title: "Search",
-                placeholder: "Search for anything!"
-            }
-        ]}
-    />
+    >
+        <Text>Search</Text>
+        <Input placeholder="Search Query" />
+    </Pop>
 
     <Pop
         top={50}
         open={languageSelectOpen}
         onClose={() => languageSelectOpen = false}
-        items={[
-            {
-                type: "input",
-                title: "Search for language",
-                placeholder: "Search for any language!"
-            },
-            { type: "break" },
-            {
-                type: "text",
-                value: "Select your language!"
-            },
-            {
-                type: "linksArray",
-                items: [
-                    {
-                        // English
-                        label: "English"
-                    },
-                    {
-                        // Spanish
-                        label: "Español"
-                    },
-                    {
-                        // Russian
-                        label: "Русский"
-                    },
-                    {
-                        // Arabic
-                        label: "العربية"
-                    },
-                    {
-                        // Ukrainian
-                        label: "Українська"
-                    },
-                    {
-                        // German
-                        label: "Deutsch"
-                    }
-                ]
-            }
-        ]}
-    />
+    >
+        <Text>Filter Languages</Text>
+        <Input
+            placeholder="Search for language"
+        />
+
+        <br />
+
+        <Text>Select Language</Text>
+        <LinksArray
+            items={[
+                {
+                    // English
+                    label: "English"
+                },
+                {
+                    // Spanish
+                    label: "Español"
+                },
+                {
+                    // German
+                    label: "Deutsch"
+                },
+                {
+                    // French
+                    label: "Français"
+                },
+                {
+                    // Italian
+                    label: "Italiano"
+                },
+                {
+                    // Portuguese
+                    label: "Português"
+                },
+                {
+                    // Russian
+                    label: "Русский"
+                },
+                {
+                    // Chinese
+                    label: "中文"
+                }
+            ]}
+        />
+    </Pop>
 </div>
 
 <style lang="scss">

@@ -1,36 +1,5 @@
 <script lang="ts">
     import __global__ from "../store/__global__";
-    import Input from "./Input.svelte";
-    import type LinkItem from "./LinkItem";
-import LinksArray from "./LinksArray.svelte";
-    import Text from "./Text.svelte";
-
-    interface ItemInput {
-        type: "input";
-        placeholder?: string;
-        value?: string;
-        title?: string;
-    }
-
-    interface ItemText {
-        type: "text";
-        value: string;
-    }
-
-    interface ItemBreak {
-        type: "break";
-    }
-
-    interface ItemLinksArray {
-        type: "linksArray";
-        items: LinkItem[];
-    }
-
-    type Item = 
-        ItemInput  |
-        ItemText   |
-        ItemBreak  |
-        ItemLinksArray;
 
     export let top: number | false = false;
     export let right: number | false = false;
@@ -67,8 +36,6 @@ import LinksArray from "./LinksArray.svelte";
 
     export let width = 400;
     export let open = false;
-
-    export let items: Item[] = [];
 
     if (!open) onClose();
 
@@ -124,25 +91,7 @@ import LinksArray from "./LinksArray.svelte";
         transform: scale(${open ? 1 : 0.9});
     `}
 >
-    {#each items as item}
-        {#if item.type === "text"}
-            <Text 
-                text={item.value}
-            />
-        {:else if item.type === "input"}
-            <Input 
-                placeholder={item.placeholder}
-                title={item.title}
-                value={item.value}
-            />
-        {:else if item.type === "break"}
-            <div style="height: 5px"></div>
-        {:else if item.type === "linksArray"}
-            <LinksArray
-                items={item.items}
-            />
-        {/if}
-    {/each}
+    <slot />
 </div>
 
 <style lang="scss">
