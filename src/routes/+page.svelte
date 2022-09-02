@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Pop from "../lib/Pop.svelte";
+    import Text from "../lib/Text.svelte";
     import __global__ from "../store/__global__";
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<Text>There's nothing here!</Text>
+<Text>Visit this <a href="/about/">Page</a> instead</Text>

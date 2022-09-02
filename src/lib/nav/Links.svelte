@@ -7,8 +7,7 @@
     const links: Links[] = [
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
-        { href: '/products', label: 'Products' },
-        { href: '/docs', label: 'Documentation' },
+        { href: '/devops', label: 'DevOps' },
         { href: '/learn-to-code', label: 'Learn Programming' },
     ];
 </script>

@@ -17,6 +17,10 @@
         {
             label: "Discord Server",
             href: "https://discord.gg/wtYw7GRfNF"
+        },
+        {
+            label: "Get Involved",
+            href: "/get-involved"
         }
     ]}
 >
