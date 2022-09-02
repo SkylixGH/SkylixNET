@@ -119,11 +119,13 @@ import { goto } from "$app/navigation";
                     .title {
                         color: $text1;
                         font-size: 13px;
+                        margin: $space2 0;
                     }
 
                     .description {
                         color: $text2;
                         font-size: 13px;
+                        margin-bottom: $space2;
                     }
                 }
 
