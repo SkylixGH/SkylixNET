@@ -55,15 +55,8 @@
 
         .body {
             width: 100%;
-            max-width: 1500px;
             display: flex;
             flex-direction: column;
-            margin-top: $space3;
-            
-            @media (max-width: 1540px) {
-                padding-left: $space3;
-                padding-right: $space3;
-            }
         }
 
         .banner {
