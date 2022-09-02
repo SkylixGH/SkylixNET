@@ -1,6 +1,7 @@
 <script>
     import Nav from "../lib/Nav.svelte";
     import __global__ from "../store/__global__";
+    import Footer from "../lib/Footer.svelte";
 
     let docReady = false;
 
@@ -67,7 +68,14 @@
     <meta content="#ff556e" data-react-helmet="true" name="theme-color" />
 </svelte:head>
 
-<slot />
+<div class="root">
+    <div class="content">
+        <slot />
+    </div>
+
+    <Footer />
+</div>
+
 <Nav />
 
 <div class={`loader ${docReady ? 'ready' : ''}`}>
@@ -111,6 +119,16 @@
         img {
             width: 150px;
             animation: size 3s infinite;
+        }
+    }
+    
+    .root {
+        height: 100vh;
+        width: 100vw;
+
+        .content {
+            min-height: calc(100% - 60px);
+            margin-bottom: $space3;
         }
     }
 </style>

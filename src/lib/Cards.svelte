@@ -4,7 +4,6 @@ import { goto } from "$app/navigation";
 
     interface Card {
         image: string;
-        banner: string;
         title: string;
         description: string;
         href: string;
@@ -19,7 +18,7 @@ import { goto } from "$app/navigation";
             <div class="item" on:click={() => goto(card.href)}>
                 <div class="header">
                     <img
-                        src={card.banner}
+                        src={card.image}
                         alt={""}
                         class="image"
                     />
@@ -82,7 +81,7 @@ import { goto } from "$app/navigation";
                     .logo {
                         position: absolute;
                         top: 50%;
-                        left: 0;
+                        left: 50%;
                         overflow: hidden;
                         width: 100px;
                         height: 100px;
@@ -90,20 +89,21 @@ import { goto } from "$app/navigation";
                         align-items: center;
                         justify-content: center;
                         border-radius: 100%;
-                        outline: 0px solid $solid1;
+                        outline: 0px solid $dynamic1;
                         transition: $transition;
                         box-sizing: initial;
-                        transform: translate(50%, -50%);
+                        transform: translate(-50%, -50%);
                         background: $solid1;
 
                         img {
                             width: 60px;
+                            transition: $transition;
                         }
                     }
 
                     & > img {
                         width: 100%;
-                        filter: blur(10px);
+                        filter: blur(30px);
                         transition: $transition;
                     }
                 }
@@ -135,13 +135,17 @@ import { goto } from "$app/navigation";
                     .header {
                         & > img {
                             transform: scale(1.2);
-                            filter: blur(0);
+                            filter: blur(20);
                         }
 
                         .logo {
                             outline-width: 10px;
                             outline-offset: $space1;
                             outline-color: $dynamic2;
+                            
+                            img {
+                                transform: scale(1.2);
+                            }
                         }
                     }
                 }
