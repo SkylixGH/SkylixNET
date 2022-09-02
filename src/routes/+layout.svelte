@@ -10,6 +10,12 @@
             __global__.mouseY.set(e.clientY);
             __global__.mouseRight.set(window.innerWidth - e.clientX);
             __global__.mouseTop.set(e.clientY);
+
+            __global__.mouseTop__ = e.clientY;
+            __global__.mouseRight__ = window.innerWidth - e.clientX;
+
+            __global__.mouseX__ = e.clientX;
+            __global__.mouseY__ = e.clientY;
         });
 
         window.addEventListener("mousedown", (e) => {

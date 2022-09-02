@@ -5,9 +5,9 @@
     export let right: number | false = false;
     export let onClose: () => void;
 
-    let topComp = 0;
-    let rightComp = 0;
-    let leftComp = 0;
+    let topComp = __global__.mouseTop__;
+    let rightComp = __global__.mouseRight__;
+    let leftComp = __global__.mouseX__;
 
     let forcedRight: number | false = false;
 
@@ -48,14 +48,19 @@
             forcedRight = false;
         }
 
+        topComp = __global__.mouseTop__;
+        rightComp = __global__.mouseRight__;
+
         setCompiledRight();
         setCompiledTop();
+
+        console.log(__global__.mouseX__, compiledRight, forcedRight);
     }
 
     __global__.mouseRight.subscribe(mr => {
         if (right != false) rightComp = right;
         
-        if (open) return;
+        if (!open) return;
         rightComp = mr;
     });
 
@@ -80,9 +85,12 @@
 
 <div 
     class="pop"
+    
     on:mouseenter={() => { mouseOverPop = true; }}
     on:mouseleave={() => { mouseOverPop = false; }}
+
     style={`
+        ${(() => { __global__.dispatchAll(); return ""; })()}
         top: ${(() => { setCompiledTop(); return ""; } )()} ${compiledTop}px;
         right: ${(() => { setCompiledRight(); return ""; } )()} ${compiledRight}px;
         width: ${width}px;
