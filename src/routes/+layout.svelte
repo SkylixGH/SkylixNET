@@ -21,16 +21,20 @@
         window.addEventListener("mousedown", (e) => {
             if (e.button == 0) {
                 __global__.mouseLeftBtnDown.set(true);
+                __global__.mouseLeftBtnDown__ = true;
             } else if (e.button == 2) {
                 __global__.mouseRightBtnDown.set(true);
+                __global__.mouseRightBtnDown__ = true;
             }
         });
         
         window.addEventListener("mouseup", (e) => {
             if (e.button == 0) {
                 __global__.mouseLeftBtnDown.set(false);
+                __global__.mouseLeftBtnDown__ = false;
             } else if (e.button == 2) {
                 __global__.mouseRightBtnDown.set(false);
+                __global__.mouseRightBtnDown__ = false;
             }
         });
 

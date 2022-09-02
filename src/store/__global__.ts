@@ -7,6 +7,9 @@ export default {
     mouseTop__: 0,
     mouseRight__: 0,
 
+    mouseLeftBtnDown__: false,
+    mouseRightBtnDown__: false,
+
     mouseX: writable(0),
     mouseY: writable(0),
     mouseTop: writable(0),

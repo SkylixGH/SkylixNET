@@ -1,25 +1,23 @@
 <script lang="ts">
-    interface Links {
+    interface Link {
         href: string;
         label: string;
     }
 
-    const links: Links[] = [
-        { href: '/', label: 'Home' },
-        { href: '/about', label: 'About' },
-        { href: '/devops', label: 'DevOps' },
-        { href: '/learn-to-code', label: 'Learn Programming' },
-    ];
+    export let links: Link[];
+    export let mobile: boolean;
 </script>
 
 <div class="links">
-    {#each links as {href, label}, index}
-        <a href={href}>{label}</a>
- 
-        {#if index < links.length - 1}
-            <span class="divider" />
-        {/if}
-    {/each}
+    {#if !mobile}
+        {#each links as {href, label}, index}
+            <a href={href}>{label}</a>
+    
+            {#if index < links.length - 1}
+                <span class="divider" />
+            {/if}
+        {/each}
+    {/if}
 </div>
 
 <style lang="scss">

@@ -1,17 +1,29 @@
 <script lang="ts">
+    import __global__ from "../store/__global__";
     import Buttons from "./nav/Buttons.svelte";
     import Links from "./nav/Links.svelte";
     import Logo from "./nav/Logo.svelte";
-    import Sidebar from "./nav/Sidebar.svelte";
+
+    let mobile = true;
+
+    __global__.windowSize.subscribe(ws => {
+        if (ws.width > 900) mobile = false;
+        else mobile = true;
+    });
+
+    let links = [
+        { href: '/', label: 'Home' },
+        { href: '/about', label: 'About' },
+        { href: '/devops', label: 'DevOps' },
+        { href: '/learn-to-code', label: 'Learn Programming' },
+    ];
 </script>
 
 <div class="nav">
     <div class="inner">
         <Logo />
-        <Links />
-        <Buttons />
-
-        <Sidebar />
+        <Links mobile={mobile} links={links} />
+        <Buttons mobile={mobile} links={links} />
     </div>
 </div>
 
