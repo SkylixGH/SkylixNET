@@ -1,4 +1,6 @@
 <script lang="ts">
+import { goto } from "$app/navigation";
+
     import Icon from "@iconify/svelte";
     import type LinkItem from "./LinkItem";
 
@@ -7,16 +9,22 @@
 
 <div class="link-array">
     {#each items as item, index}
-        <a
-            href={ item.href }
+        <button
             class="link"
+            on:click={() => {
+                if (item.href) {
+                    goto(item.href);
+                } else if (item.action) {
+                    item.action();
+                }
+            }}
         >
             <div class="arrow">
                 <Icon icon="lucide:arrow-right" />
             </div>
             
             <span>{ item.label }</span>
-        </a>
+        </button>
     {/each}
 </div>
 
@@ -28,7 +36,7 @@
         flex-direction: column;
         gap: $space1;
 
-        a {
+        button {
             color: $text1;
             font-size: 13px;
             text-decoration: none;
@@ -38,6 +46,9 @@
             display: flex;
             align-items: center;
             gap: $space2;
+            background: transparent;
+            border: none;
+            cursor: pointer;
 
             .arrow {
                 width: 15px;

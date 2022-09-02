@@ -45,6 +45,35 @@
             {
                 type: "text",
                 value: "Select your language!"
+            },
+            {
+                type: "linksArray",
+                items: [
+                    {
+                        // English
+                        label: "English"
+                    },
+                    {
+                        // Spanish
+                        label: "Español"
+                    },
+                    {
+                        // Russian
+                        label: "Русский"
+                    },
+                    {
+                        // Arabic
+                        label: "العربية"
+                    },
+                    {
+                        // Ukrainian
+                        label: "Українська"
+                    },
+                    {
+                        // German
+                        label: "Deutsch"
+                    }
+                ]
             }
         ]}
     />
