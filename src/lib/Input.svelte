@@ -23,13 +23,25 @@
 
         .body {
             margin-top: $space1;
-            border-bottom: 2px solid $dynamic2;
-            border-radius: $radius1;
+            border-radius: $radius2;
             background: $dynamic2;
             height: 32px;
             overflow: hidden;
             display: flex;
             transition: $transition;
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                display: flex;
+                width: 100%;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                background: $soft;
+                transition: $transition;
+            }
 
             input {
                 flex: 1;
@@ -48,6 +60,11 @@
             &:focus-within {
                 border-color: $brand2;
                 background: $dynamic2;
+
+                &:after {
+                    background: $brand2;
+                    height: 2px;
+                }
             }
         }
     }

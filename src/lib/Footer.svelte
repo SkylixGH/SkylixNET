@@ -1,12 +1,27 @@
 <script lang="ts">
     import Text from "./Text.svelte";
     import LinksArray from "./LinksArray.svelte";
+    import Icon from "@iconify/svelte";
+
+    function wooo() {
+        alert("Wooosh!!");
+    }
+
+    function zap() {
+        alert("Zap!!");
+    }
 </script>
 
 <div class="footer">
     <div class="header">
         <div class="data">
-            HII
+            <button on:click={() => wooo()}>
+                <Icon icon="lucide:star" />
+            </button>
+
+            <button on:click={() => zap()}>
+                <Icon icon="lucide:zap" />
+            </button>
         </div>
     </div>
 
@@ -199,6 +214,31 @@
 
         .header {
             background: $dynamic1;
+
+            .data {
+                display: flex;
+                gap: $space2;
+
+                button {
+                    border: none;
+                    background: transparent;
+                    color: $text1;
+                    cursor: pointer;
+                    font-size: 16px;
+                    transition: $transition;
+                    border-radius: $radius2;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 30px;
+                    width: 30px;
+
+                    &:hover {
+                        background: $dynamic2;
+                        color: $brand2;
+                    }
+                }
+            }
         }
     }
 </style>

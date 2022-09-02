@@ -42,7 +42,7 @@ import { goto } from "$app/navigation";
             text-decoration: none;
             transition: $transition;
             padding: $space2;
-            border-radius: $radius1;
+            border-radius: $radius2;
             display: flex;
             align-items: center;
             gap: $space2;

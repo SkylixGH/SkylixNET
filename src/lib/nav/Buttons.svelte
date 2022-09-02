@@ -130,7 +130,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: $radius1;
+            border-radius: $radius2;
             border: none;
             background: transparent;
             color: $text2;
