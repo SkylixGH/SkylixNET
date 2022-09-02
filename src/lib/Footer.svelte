@@ -72,17 +72,67 @@
                     {
                         label: "Trust and Safety",
                         href: "/safety/"
+                    },
+                    {
+                        label: "Support Center",
+                        href: "/support"
                     }
                 ]}
             />
         </div>
 
         <div class="block">
-            HI
+            <Text>Other</Text>
+
+            <hr />
+
+            <LinksArray
+                items={[
+                    {
+                        label: "Shop",
+                        href: "/shop"
+                    },
+                    {
+                        label: "Pricing and Plans",
+                        href: "/pricing"
+                    },
+                    {
+                        label: "API Service",
+                        href: "/devops/Skylix/APIInterface/wiki"
+                    },
+                    {
+                        label: "Status",
+                        href: "/status"
+                    },
+                    {
+                        label: "Get Involved",
+                        href: "/get-involved"
+                    },
+                    {
+                        label: "Blog",
+                        href: "/blog"
+                    }
+                ]}
+            />
         </div>
 
         <div class="block">
-            HI
+            <Text>Legal</Text>
+
+            <hr />
+
+            <LinksArray
+                items={[
+                    {
+                        label: "Terms of Service",
+                        href: "/legal/tos"
+                    },
+                    {
+                        label: "Privacy Policy",
+                        href: "/legal/privacy"
+                    }
+                ]}
+            />
         </div>
     </div>
 
