@@ -53,8 +53,6 @@
 
         setCompiledRight();
         setCompiledTop();
-
-        console.log(__global__.mouseX__, compiledRight, forcedRight);
     }
 
     __global__.mouseRight.subscribe(mr => {
