@@ -59,7 +59,7 @@ import { goto } from "$app/navigation";
             gap: $space3;
             width: 100%;
             max-width: 1200px;
-            justify-content: space-evenly;
+            justify-content: center;
             
             .item {
                 display: flex;
@@ -68,6 +68,7 @@ import { goto } from "$app/navigation";
                 border-radius: $radius2;
                 flex: 1 1 300px;
                 overflow: auto;
+                max-width: 300px;
 
                 .header {
                     height: 150px;
@@ -93,7 +94,7 @@ import { goto } from "$app/navigation";
                         transition: $transition;
                         box-sizing: initial;
                         transform: translate(-50%, -50%);
-                        background: $solid1;
+                        background: transparent;
 
                         img {
                             width: 60px;
@@ -103,7 +104,7 @@ import { goto } from "$app/navigation";
 
                     & > img {
                         width: 100%;
-                        filter: blur(30px);
+                        filter: blur(30px) opacity(0.3);
                         transition: $transition;
                     }
                 }

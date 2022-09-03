@@ -44,6 +44,18 @@
                 title: "Axis",
                 description: "A multilanguage IDE designed for making software development easier. It comes packed with extensions support, themes, debugging tools and MORE!",
                 href: "/about/axis"
+            },
+            {
+                image: "/logo/Crystal.svg",
+                title: "Crystal",
+                description: "A powerfull resource efficient operating system that is easy to use! Crystal comes with amazing GUIs for installing programs, managing the system and MORE!",
+                href: "/about/crystal"
+            },
+            {
+                image: "https://cdn.discordapp.com/attachments/942110928592314388/976682909387866192/Untitled230_20220518200713.png",
+                title: "Mewgem",
+                description: "Software product developed by Skylix, currently unknown purpose",
+                href: "https://mewgem.tech"
             }
         ]}
     />
